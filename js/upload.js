@@ -15,4 +15,4 @@ userPictures.forEach((userPicture) => {
 
 pictureContainer.appendChild(pictureListFragment);
 
-
+export {userPictures};
