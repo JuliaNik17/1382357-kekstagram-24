@@ -42,3 +42,5 @@ closeBigPicture.addEventListener('keydown', (evt) => {
     closePictureModal();
   }
 });
+
+export {body};

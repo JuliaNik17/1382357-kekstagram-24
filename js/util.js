@@ -25,4 +25,8 @@ const isEscapeKey = (evt) => {
   return evt.key === 'Escape';
 };
 
-export {getRandomInteger, getMaxLenghtOfComment, MAX_LENGHT, isEscapeKey};
+const isEnterKey = (evt) => {
+  return evt.key === 'Enter';
+};
+
+export {getRandomInteger, getMaxLenghtOfComment, MAX_LENGHT, isEscapeKey, isEnterKey};
