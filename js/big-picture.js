@@ -5,16 +5,12 @@ import {isEscapeKey} from './util.js';
 const pictures = document.querySelectorAll('.picture');
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = document.querySelector('.big-picture__img');
-const commentCount = document.querySelector('.social__comment-count');
-const commentsLoader = document.querySelector('.comments-loader');
 const body = document.querySelector('body');
 const closeBigPicture = document.querySelector('.big-picture__cancel');
 
 pictures.forEach((picture) => {
   picture.addEventListener('click', function () {
     bigPicture.classList.remove('hidden');
-    commentCount.classList.add('hidden');
-    commentsLoader.classList.add('hidden');
     body.classList.add('modal-open');
     bigPictureImg.querySelector('img').src = picture.querySelector('.picture__img').src;
     bigPicture.querySelector('.likes-count').textContent = picture.querySelector('.picture__likes').textContent;
