@@ -74,8 +74,7 @@ scaleControlSmaller.addEventListener('click', function() {
     const newScaleControlValue = scaleControlValue - step;
     document.querySelector('.scale__control--value').value = newScaleControlValue + '%';
     let scaleValue = newScaleControlValue/100;
-    imgUpload.style.transform = 'scale(scaleValue)';
-    console.log(scaleValue, imgUpload.style.transform);
+    imgUpload.style.transform = 'scale(' + scaleValue + ')';
   }
 });
 
@@ -84,5 +83,9 @@ scaleControlBigger.addEventListener('click', function() {
   if(scaleControlValue < 100) {
     const newScaleControlValue = scaleControlValue + step;
   document.querySelector('.scale__control--value').value = newScaleControlValue + '%';
+  let scaleValue = newScaleControlValue/100;
+  imgUpload.style.transform = 'scale(' + scaleValue + ')';
   }
 });
+
+export{imgUpload};
