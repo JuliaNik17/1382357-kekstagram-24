@@ -13,13 +13,13 @@ const getSocialComments = function (comments) {
     commentElement.querySelector('.social__picture').src = comment.avatar;
     commentElement.querySelector('.social__picture').alt = comment.name;
     commentElement.querySelector('.social__text').textContent = comment.message;
-    if (comments.length > 5) {
-      for (let i = 6; i<= comments.length; i++){
-        const listOfComments = document.querySelectorAll('.social__comment');
-        const item = listOfComments[i];
-        item.classList.add('hidden');
-      }
-    }
+    // if (comments.length > 5) {
+    //   for (let i = 6; i<= comments.length; i++){
+    //     const listOfComments = document.querySelectorAll('.social__comment');
+    //     const item = listOfComments[i];
+    //     item.classList.add('hidden');
+    //   }
+    // }
     socialCommentsListFragment.appendChild(commentElement);
   });
   socialCommentsContainer.appendChild(socialCommentsListFragment);
