@@ -1,18 +1,30 @@
-import {getPhotoPost} from './data.js';
+import { createLoader } from "./server.js";
+import { renderBigPicture } from "./big-picture.js";
+import { showAlert } from "./util.js";
 
-const userPictures = getPhotoPost();
 const pictureContainer = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture').content;
-const pictureListFragment = document.createDocumentFragment();
 
-userPictures.forEach((userPicture) => {
-  const pictureElement = pictureTemplate.cloneNode(true);
-  pictureElement.querySelector('.picture__img').src = userPicture.url;
-  pictureElement.querySelector('.picture__likes').textContent = userPicture.likes;
-  pictureElement.querySelector('.picture__comments').textContent = userPicture.comments.length;
-  pictureListFragment.appendChild(pictureElement);
-});
+const renderUserPictures = (loadedPicture) => {
+  const pictureListFragment = document.createDocumentFragment();
 
-pictureContainer.appendChild(pictureListFragment);
+  loadedPicture.forEach(({url, likes, comments}) =>{
+    const pictureElement = pictureTemplate.cloneNode(true);
+    pictureElement.querySelector('.picture__img').src = url;
+    pictureElement.querySelector('.picture__likes').textContent = likes;
+    pictureElement.querySelector('.picture__comments').textContent = comments.length;
+    pictureListFragment.appendChild(pictureElement);
+  });
 
-export {userPictures};
+  pictureContainer.appendChild(pictureListFragment);
+
+  renderBigPicture(loadedPicture);
+};
+
+const getAlert = () => {
+  showAlert('Произошла ошибка!');
+}
+
+const loadPictures = createLoader(renderUserPictures, getAlert);
+loadPictures();
+
