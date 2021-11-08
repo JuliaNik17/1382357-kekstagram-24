@@ -8,6 +8,7 @@ import './slider.js';
 import './server.js';
 import './scale-on-popup.js';
 import {setUploadFormSubmit} from './upload-form.js';
+import './filters.js';
 
 setUploadFormSubmit(closeUploadPicturePopup);
 
