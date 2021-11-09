@@ -10,7 +10,7 @@ const renderBigPicture = (loadedPictures) => {
   const bigPictureImg = document.querySelector('.big-picture__img');
 
   pictureCards.forEach((pictureCard) => {
-    pictureCard.addEventListener('click', function () {
+    pictureCard.addEventListener('click', () => {
       bigPicture.classList.remove('hidden');
       body.classList.add('modal-open');
       bigPictureImg.querySelector('img').src = pictureCard.querySelector('.picture__img').src;

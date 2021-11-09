@@ -36,16 +36,16 @@ const renderDiscussedPictureCards = (loadedPicture) => {
     }
     return 0;
   }).reverse();
-const pictureListFragmentFiltered = document.createDocumentFragment();
-picturesDiscassed.forEach(({url, likes, comments}) =>{
-  const pictureElement = pictureTemplate.cloneNode(true);
-  pictureElement.querySelector('.picture__img').src = url;
-  pictureElement.querySelector('.picture__likes').textContent = likes;
-  pictureElement.querySelector('.picture__comments').textContent = comments.length;
-  pictureListFragmentFiltered.appendChild(pictureElement);
-});
-pictureContainer.appendChild(pictureListFragmentFiltered);
-renderBigPicture(picturesDiscassed);
+  const pictureListFragmentFiltered = document.createDocumentFragment();
+  picturesDiscassed.forEach(({url, likes, comments}) =>{
+    const pictureElement = pictureTemplate.cloneNode(true);
+    pictureElement.querySelector('.picture__img').src = url;
+    pictureElement.querySelector('.picture__likes').textContent = likes;
+    pictureElement.querySelector('.picture__comments').textContent = comments.length;
+    pictureListFragmentFiltered.appendChild(pictureElement);
+  });
+  pictureContainer.appendChild(pictureListFragmentFiltered);
+  renderBigPicture(picturesDiscassed);
 };
 
 export{renderRandomPictureCards, renderDiscussedPictureCards};
