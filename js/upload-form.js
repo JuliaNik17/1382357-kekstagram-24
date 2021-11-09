@@ -1,5 +1,5 @@
-import {renderErrorMessage} from "./util.js";
-import { renderSuccessMessage } from "./util.js";
+import {renderErrorMessage} from './util.js';
+import { renderSuccessMessage } from './util.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const hashtagInput = document.querySelector('.text__hashtags');
@@ -10,15 +10,13 @@ const textDescription = document.querySelector('.text__description');
 hashtagInput.addEventListener('input', () => {
   const hashtagArr = hashtagInput.value.toLowerCase().split(' ');
   const hashtagSet = new Set(hashtagArr);
-  console.log(hashtagArr);
   if (hashtagArr.length > 5) {
     hashtagInput.setCustomValidity('Нельзя указать больше пяти хэш-тегов');
-  } else if (hashtagSet.size != hashtagArr.length) {
+  } else if (hashtagSet.size !== hashtagArr.length) {
     hashtagInput.setCustomValidity('Один и тот же хэш-тег не может быть использован дважды');
   } else {
     hashtagArr.forEach((hashtag) => {
-      console.log(hashtag);
-      if (!hashtag.startsWith("#")) {
+      if (!hashtag.startsWith('#')) {
         hashtagInput.setCustomValidity('Хэш-тег должен начинаться с символа #');
       } else if (!re.test(hashtag)) {
         hashtagInput.setCustomValidity('Не может содержать пробелы, спецсимволы (#, @, $), символы пунктуации, эмодзи');
@@ -52,18 +50,18 @@ const setUploadFormSubmit = (onSuccess) => {
         body: formData,
       },
     )
-    .then((response) => {
-      if (response.ok) {
-        onSuccess();
-        renderSuccessMessage();
-      } else {
+      .then((response) => {
+        if (response.ok) {
+          onSuccess();
+          renderSuccessMessage();
+        } else {
+          renderErrorMessage();
+        }
+      })
+      .catch(() => {
         renderErrorMessage();
-      }
-    })
-    .catch(() => {
-      renderErrorMessage();
-    });
+      });
   });
-}
+};
 
-export {setUploadFormSubmit, uploadForm}
+export {setUploadFormSubmit, uploadForm};

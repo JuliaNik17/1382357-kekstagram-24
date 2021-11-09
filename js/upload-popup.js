@@ -1,7 +1,7 @@
-import { body } from "./big-picture.js";
+import { body } from './big-picture.js';
 import {isEscapeKey} from './util.js';
-import { uploadForm } from "./upload-form.js";
-import { createSlider, imgUpload, removeSlider } from "./slider.js";
+import { uploadForm } from './upload-form.js';
+import { createSlider, removeSlider } from './slider.js';
 
 const uploadPopup = document.querySelector('.img-upload__overlay');
 const openUploadPopup = document.querySelector('.img-upload__label');
@@ -26,7 +26,6 @@ openUploadPopup.addEventListener('click', () => {
 
 closeUploadPopup.addEventListener('click', () => {
   closeUploadPicturePopup();
-  console.log(imgUpload.style.filter);
 });
 
 document.addEventListener('keydown', (evt) => {
