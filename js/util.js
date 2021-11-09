@@ -1,14 +1,30 @@
-// const getRandomInteger = function(from, to) {
-//   if (from >= 0, to > from) {
-//     let rand = from + Math.random() * (to + 1 - from);
-//     return Math.floor(rand);
-//   }
-//     console.log ('Ошибка: диапазон может быть только положительный, включая ноль.');
-//     return false;
-// }
+const getRandomInteger = function(from, to) {
+  if (from >= 0, to > from) {
+    let rand = from + Math.random() * (to + 1 - from);
+    return Math.floor(rand);
+  }
+    console.log ('Ошибка: диапазон может быть только положительный, включая ноль.');
+    return false;
+}
 
 // Подсмотрено тут https://learn.javascript.ru/task/random-int-min-max
 
+function createRandomIdFromRangeGenerator (min, max) {
+  const previousValues = [];
+
+  return function () {
+    let currentValue = getRandomInteger(min, max);
+    if (previousValues.length >= (max - min + 1)) {
+      console.error('Перебраны все числа из диапазона от ' + min + ' до ' + max);
+      return null;
+    }
+    while (previousValues.includes(currentValue)) {
+      currentValue = getRandomInteger(min, max);
+    }
+    previousValues.push(currentValue);
+    return currentValue;
+  };
+}
 
 // const MAX_LENGHT = 140;
 
@@ -72,4 +88,4 @@ const showAlert = (message) => {
   }, ALERT_SHOW_TIME);
 }
 
-export {isEscapeKey, isEnterKey, renderErrorMessage, renderSuccessMessage, showAlert};
+export {isEscapeKey, isEnterKey, renderErrorMessage, renderSuccessMessage, showAlert, createRandomIdFromRangeGenerator};
