@@ -5,10 +5,10 @@ const valueElement = document.querySelector('.effect-level__value');
 const effectsList = document.querySelector('.effects__list');
 let filterType;
 
-imgUpload.style.filter = "";
+imgUpload.style.filter = '';
 
 const createSlider = () => {
-  imgUpload.style.filter = "";
+  imgUpload.style.filter = '';
   noUiSlider.create(sliderElement, {
     range: {
       min: 0,
@@ -29,7 +29,7 @@ const createSlider = () => {
       imgUpload.style.filter = filterType + '(' + valueElement.value + ')';
     }
   });
-}
+};
 
 const removeSlider = () => {
   sliderElement.noUiSlider.destroy();
@@ -38,7 +38,7 @@ const removeSlider = () => {
   imgUpload.classList.remove('effects__preview--sepia', 'effects__preview--marvin', 'effects__preview--phobos', 'effects__preview--chrome', 'effects__preview--heat');
   sliderElement.classList.add('hidden');
   filterType = null;
-}
+};
 
 function onFilterChange (evt) {
   if (evt.target.matches('input[type="radio"]')) {
@@ -49,12 +49,12 @@ function onFilterChange (evt) {
       filterType = 'grayscale';
       sliderElement.noUiSlider.updateOptions({
         range: {
-            min: 0,
-            max: 1
+          min: 0,
+          max: 1,
         },
         start: 1,
-        step: 0.1
-    });
+        step: 0.1,
+      });
     } else if (evt.target.matches('#effect-sepia')) {
       sliderElement.classList.remove('hidden');
       imgUpload.classList.add('effects__preview--sepia');
@@ -62,12 +62,12 @@ function onFilterChange (evt) {
       filterType = 'sepia';
       sliderElement.noUiSlider.updateOptions({
         range: {
-            min: 0,
-            max: 1
+          min: 0,
+          max: 1,
         },
         start: 1,
-        step: 0.1
-    });
+        step: 0.1,
+      });
     } else if (evt.target.matches('#effect-marvin')) {
       sliderElement.classList.remove('hidden');
       imgUpload.classList.add('effects__preview--marvin');
@@ -75,12 +75,12 @@ function onFilterChange (evt) {
       filterType = 'invert';
       sliderElement.noUiSlider.updateOptions({
         range: {
-            min: 0,
-            max: 100
+          min: 0,
+          max: 100,
         },
         start: 100,
-        step: 1
-    });
+        step: 1,
+      });
     } else if (evt.target.matches('#effect-phobos')) {
       sliderElement.classList.remove('hidden');
       imgUpload.classList.add('effects__preview--phobos');
@@ -88,12 +88,12 @@ function onFilterChange (evt) {
       filterType = 'blur';
       sliderElement.noUiSlider.updateOptions({
         range: {
-            min: 0,
-            max: 3
+          min: 0,
+          max: 3,
         },
         start: 3,
-        step: 0.1
-    });
+        step: 0.1,
+      });
     } else if (evt.target.matches('#effect-heat')) {
       sliderElement.classList.remove('hidden');
       imgUpload.classList.add('effects__preview--heat');
@@ -101,19 +101,18 @@ function onFilterChange (evt) {
       filterType = 'brightness';
       sliderElement.noUiSlider.updateOptions({
         range: {
-            min: 1,
-            max: 3
+          min: 1,
+          max: 3,
         },
         start: 3,
-        step: 0.1
-    });
+        step: 0.1,
+      });
     } else {
       removeSlider();
     }
   }
-
 }
 
 effectsList.addEventListener('change', onFilterChange);
 
-export {createSlider, removeSlider, imgUpload}
+export {createSlider, removeSlider, imgUpload};

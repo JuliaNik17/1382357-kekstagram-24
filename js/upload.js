@@ -1,9 +1,9 @@
-import { createLoader } from "./server.js";
-import { renderBigPicture } from "./big-picture.js";
-import { showAlert } from "./util.js";
-import { debounce } from "./utils/debounce.js";
-import { renderDiscussedPictureCards } from "./filters.js";
-import { renderRandomPictureCards } from "./filters.js";
+import { createLoader } from './server.js';
+import { renderBigPicture } from './big-picture.js';
+import { showAlert } from './util.js';
+import { debounce } from './utils/debounce.js';
+import { renderDiscussedPictureCards } from './filters.js';
+import { renderRandomPictureCards } from './filters.js';
 
 const pictureContainer = document.querySelector('.picture-loaded');
 const pictureTemplate = document.querySelector('#picture').content;
@@ -16,7 +16,7 @@ const filterDiscussedButton = document.querySelector('#filter-discussed');
 
 const clearPictureContainer = () => {
   pictureContainer.innerHTML = '';
-}
+};
 
 const renderPictureCards = (loadedPicture) => {
   clearPictureContainer();
@@ -57,17 +57,17 @@ const renderUserPictures = (loadedPicture) => {
       filterDefaultButton.classList.add('img-filters__button--active');
       filterDiscussedButton.classList.remove('img-filters__button--active');
       filterRandomButton.classList.remove('img-filters__button--active');
-      debounce(renderPictureCards(loadedPicture), RERENDER_DELAY)
+      debounce(renderPictureCards(loadedPicture), RERENDER_DELAY);
     }
   };
 
-    filtersForm.addEventListener('click', getPicturesFilter);
+  filtersForm.addEventListener('click', getPicturesFilter);
 
 };
 
 const getAlert = () => {
   showAlert('Произошла ошибка!');
-}
+};
 
 const loadPictures = createLoader(renderUserPictures, getAlert);
 loadPictures();
