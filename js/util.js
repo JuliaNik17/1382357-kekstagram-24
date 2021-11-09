@@ -26,14 +26,6 @@ function createRandomIdFromRangeGenerator (min, max) {
   };
 }
 
-// const MAX_LENGHT = 140;
-
-// const getMaxLenghtOfComment = function(comment) {
-//   if (comment <= MAX_LENGHT) {
-//     return true;
-//   }
-//   return false;
-// }
 const ALERT_SHOW_TIME = 5000;
 const successMessageTemplate = document.querySelector('#success').content;
 const errorMessageTemplate = document.querySelector('#error').content;
