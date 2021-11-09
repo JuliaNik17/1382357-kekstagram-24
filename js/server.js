@@ -14,7 +14,6 @@ const createLoader = (onSuccess, onError) => () => {
   })
   .then((response) => response.json())
   .then((pictures) => {
-    console.log(pictures);
     onSuccess(pictures);
   })
   .catch((error) => {
