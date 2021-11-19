@@ -1,21 +1,28 @@
-const getRandomInteger = function(from, to) {
+const ALERT_SHOW_TIME = 5000;
+const PADDING = '10px 3px';
+const FONT_SIZE = '30px';
+const TEXT_ALIGN = 'center';
+const BACKGROUND_COLOR = '#32bfc9';
+const COLOR = 'red';
+const successMessageTemplate = document.querySelector('#success').content;
+const errorMessageTemplate = document.querySelector('#error').content;
+
+const getRandomInteger = (from, to) => {
   if (from >= 0, to > from) {
     const rand = from + Math.random() * (to + 1 - from);
     return Math.floor(rand);
   }
-  console.log ('Ошибка: диапазон может быть только положительный, включая ноль.');
   return false;
 };
 
 // Подсмотрено тут https://learn.javascript.ru/task/random-int-min-max
 
-function createRandomIdFromRangeGenerator (min, max) {
+const createRandomIdFromRangeGenerator = (min, max) => {
   const previousValues = [];
 
   return function () {
     let currentValue = getRandomInteger(min, max);
     if (previousValues.length >= (max - min + 1)) {
-      console.error('Перебраны все числа из диапазона от ' + min + ' до ' + max);
       return null;
     }
     while (previousValues.includes(currentValue)) {
@@ -24,11 +31,7 @@ function createRandomIdFromRangeGenerator (min, max) {
     previousValues.push(currentValue);
     return currentValue;
   };
-}
-
-const ALERT_SHOW_TIME = 5000;
-const successMessageTemplate = document.querySelector('#success').content;
-const errorMessageTemplate = document.querySelector('#error').content;
+};
 
 const renderSuccessMessage = () => {
   const element = document.createElement('section');
@@ -65,11 +68,11 @@ const showAlert = (message) => {
   alertContainer.style.left = 0;
   alertContainer.style.top = 0;
   alertContainer.style.right = 0;
-  alertContainer.style.padding = '10px 3px';
-  alertContainer.style.fontSize = '30px';
-  alertContainer.style.textAlign = 'center';
-  alertContainer.style.backgroundColor = '#32bfc9';
-  alertContainer.style.color = 'red';
+  alertContainer.style.padding = PADDING;
+  alertContainer.style.fontSize = FONT_SIZE;
+  alertContainer.style.textAlign = TEXT_ALIGN;
+  alertContainer.style.backgroundColor = BACKGROUND_COLOR;
+  alertContainer.style.color = COLOR;
 
   alertContainer.textContent = message;
 

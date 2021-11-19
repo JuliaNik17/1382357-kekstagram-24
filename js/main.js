@@ -1,12 +1,15 @@
 import './util.js';
-import './upload.js';
-import './big-picture.js';
-import './social-comments.js';
-import {closeUploadPicturePopup} from './upload-popup.js';
-import './slider.js';
+import './render-user-pictures.js';
+import './render-big-picture.js';
+import './get-social-comments.js';
+import {onImgUploadCancelElementClick} from './img-upload.js';
+import './effect-level-slider-element.js';
 import './server.js';
-import './scale-on-popup.js';
-import {setUploadFormSubmit} from './upload-form.js';
-import './filters.js';
+import './on-scale-control-bigger-element-click.js';
+import './on-scale-control-smaller-element-click.js';
+import {setImgUploadFormSubmit} from './set-img-upload-form-submit.js';
+import './render-random-picture-cards.js';
+import './render-discussed-picture-cards.js';
+import './on-img-upload-input-element-change.js';
 
-setUploadFormSubmit(closeUploadPicturePopup);
+setImgUploadFormSubmit(onImgUploadCancelElementClick);
