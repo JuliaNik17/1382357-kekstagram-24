@@ -1,4 +1,4 @@
-import { createLoader } from './server.js';
+import { createLoader } from './create-loader.js';
 import { renderBigPicture } from './render-big-picture.js';
 import { showAlert } from './util.js';
 import { debounce } from './utils/debounce.js';

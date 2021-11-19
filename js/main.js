@@ -4,7 +4,7 @@ import './render-big-picture.js';
 import './get-social-comments.js';
 import {onImgUploadCancelElementClick} from './img-upload.js';
 import './effect-level-slider-element.js';
-import './server.js';
+import './create-loader.js';
 import './on-scale-control-bigger-element-click.js';
 import './on-scale-control-smaller-element-click.js';
 import {setImgUploadFormSubmit} from './set-img-upload-form-submit.js';
