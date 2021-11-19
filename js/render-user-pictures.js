@@ -30,7 +30,7 @@ const renderPictureContainer = (loadedPicture) => {
   });
 
   pictureLoadedElement.appendChild(pictureListFragment);
-}
+};
 
 const renderPictureCards = (loadedPictures) => {
   clearPictureContainer();

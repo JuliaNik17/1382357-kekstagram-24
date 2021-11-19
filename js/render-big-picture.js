@@ -48,14 +48,14 @@ const onBigPictureEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     closePictureModal();
   }
-}
+};
 
 const closePictureModal = () => {
   bigPictureElement.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onBigPictureEscKeydown);
   socialCommentsContainer.innerHTML = '';
-}
+};
 
 bigPictureCancelElement.addEventListener('click', () => {
   closePictureModal();

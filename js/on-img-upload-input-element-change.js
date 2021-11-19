@@ -15,6 +15,6 @@ const onImgUploadInputElementChange = () => {
   } else {
     alert('Загрузите файл в формате gif, jpg, jpeg или png');
   }
-}
+};
 
 imgUploadInputElement.addEventListener('change', onImgUploadInputElementChange);

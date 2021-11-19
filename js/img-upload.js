@@ -19,15 +19,15 @@ const onImgUploadLableElementClick = () => {
   body.classList.add('modal-open');
   createSlider();
   document.addEventListener('keydown', onImgUploadEscKeydown);
-}
+};
 
 const onImgUploadCancelElementClick = () => {
   imgUploadOverlayElement.classList.add('hidden');
   body.classList.remove('modal-open');
   imgUploadFormElement.reset();
   removeSlider();
-  document.removeEventListener('keydown', onImgUploadEscKeydown)
-}
+  document.removeEventListener('keydown', onImgUploadEscKeydown);
+};
 
 imgUploadLableElement.addEventListener('click', onImgUploadLableElementClick);
 

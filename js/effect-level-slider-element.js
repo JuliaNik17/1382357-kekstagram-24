@@ -111,7 +111,7 @@ const onFilterChange = (evt) => {
       removeSlider();
     }
   }
-}
+};
 
 effectsListElement.addEventListener('change', onFilterChange);
 
